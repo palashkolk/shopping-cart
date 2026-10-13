@@ -13,15 +13,15 @@ function ProductCard({product, onAddToCart}) {
     return (
         <div className="product-card">
             <div className="img-wrapper">
-                <img src="{product.image}" alt="{product.title}" />
+                <img src={product.image} alt={product.title} />
             </div>
             <h3>{product.title}</h3>
             <p className="price">${product.price.toFixed(2)}</p>
-            <div>
+            <div className="button-container">
                 <button onClick={handleDecrement} aria-label="Decrease quantity">-</button>
                 <input type="number" value={quantity} onChange={handleInputChange} min="1" aria-label="Quantity-input"/>
                 <button onClick={handleIncrement} aria-label="Increase quantity">+</button>
-                <button className="add-btn" onClick={() => onAddToCart(product, quantity)}></button>
+                <button className="add-btn" onClick={() => onAddToCart(product, quantity)}>Add to Cart</button>
             </div>
         </div>
     );

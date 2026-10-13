@@ -1,11 +1,13 @@
 import {useEffect, useState} from 'react';
+import { useOutletContext } from "react-router-dom";
 
 import ProductCard from "../components/ProductCard";
 
-function Shop({onAddToCart}){
+function Shop(){
     const [products, setProducts]=useState([]);
     const [loading, setLoading]=useState(true);
     const [error, setError]=useState(null);
+    const { handleAddToCart } = useOutletContext();
 
     useEffect(()=> {
         const fetchData = async ()=>{
@@ -14,14 +16,10 @@ function Shop({onAddToCart}){
                 const response=await fetch('https://fakestoreapi.com/products');
                 if(!response.ok) throw new Error("Failed to pull catalogue records");
                 const data =await response.json();
+                console.log(data)
                 const parsedProduct=await Promise.all(data.slice(0,5));
+                console.log(parsedProduct)
                 setProducts(parsedProduct);
-                // const productDetails=data.slice(0,5).map(async (product)=> {return {
-                //     id: product.id,
-                //     title:product.title,
-                //     description:product.description,
-                //     price:product.price
-                // }});
 
             }catch(err){
                 setError(err.message)
@@ -41,7 +39,7 @@ function Shop({onAddToCart}){
         <div className="shop-page">
             <h2>Our Collection</h2>
             <div className="product-grid">{products.map((product)=>(
-                <ProductCard key={product.id} product={product} onAddToCart={onAddToCart} />
+                <ProductCard key={product.id} product={product} onAddToCart={handleAddToCart} />
             ))}</div>
         </div>
     )

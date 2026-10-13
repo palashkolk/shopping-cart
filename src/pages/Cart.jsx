@@ -1,4 +1,9 @@
-function Cart({ cart, onUpdateQuantity, onRemove }) {
+import { useOutletContext } from "react-router-dom";
+
+
+function Cart() {
+  const {cart, handleUpdateQuantity}= useOutletContext();
+  
   const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   if (cart.length === 0) {
@@ -23,9 +28,9 @@ function Cart({ cart, onUpdateQuantity, onRemove }) {
                 <p className="unit-price">${item.price.toFixed(2)} each</p>
               </div>
               <div className="quantity-actions">
-                <button onClick={() => onUpdateQuantity(item.id, item.quantity - 1)}>-</button>
+                <button onClick={() => handleUpdateQuantity(item.id, item.quantity - 1)}>-</button>
                 <span>{item.quantity}</span>
-                <button onClick={() => onUpdateQuantity(item.id, item.quantity + 1)}>+</button>
+                <button onClick={() => handleUpdateQuantity(item.id, item.quantity + 1)}>+</button>
               </div>
               <p className="subtotal">${(item.price * item.quantity).toFixed(2)}</p>
               <button className="delete-btn" onClick={() => onRemove(item.id)} aria-label="Remove item">🗑️</button>
