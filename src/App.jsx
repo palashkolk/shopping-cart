@@ -46,7 +46,7 @@ function App() {
     <div className="app-container">
       <Navbar totalItems={totalItems}/>
       <main className="content-container">
-        <Outlet context={{cart, handleAddToCart, handleUpdateQuantity}} />
+        <Outlet context={{cart, handleAddToCart, handleUpdateQuantity, handleRemoveFromCart}} />
       </main>
     </div>
   );

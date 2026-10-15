@@ -2,7 +2,7 @@ import { useOutletContext } from "react-router-dom";
 
 
 function Cart() {
-  const {cart, handleUpdateQuantity}= useOutletContext();
+  const {cart, handleUpdateQuantity, handleRemoveFromCart}= useOutletContext();
   
   const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
@@ -33,7 +33,7 @@ function Cart() {
                 <button onClick={() => handleUpdateQuantity(item.id, item.quantity + 1)}>+</button>
               </div>
               <p className="subtotal">${(item.price * item.quantity).toFixed(2)}</p>
-              <button className="delete-btn" onClick={() => onRemove(item.id)} aria-label="Remove item">🗑️</button>
+              <button className="delete-btn" onClick={() => handleRemoveFromCart(item.id)} aria-label="Remove item">🗑️</button>
             </div>
           ))}
         </div>

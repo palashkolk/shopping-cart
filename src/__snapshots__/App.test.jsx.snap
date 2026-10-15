@@ -1,0 +1,78 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`App component > renders the app I am not sure what to expect 1`] = `
+<div>
+  <div
+    class="app-container"
+  >
+    <nav
+      class="navbar"
+    >
+      <div
+        class="nav-logo"
+      >
+        <a
+          data-discover="true"
+          href="/"
+        >
+          Odin Store
+        </a>
+      </div>
+      <ul
+        class="nav-links"
+      >
+        <li>
+          <a
+            aria-current="page"
+            class="active"
+            data-discover="true"
+            href="/"
+          >
+            Home
+          </a>
+        </li>
+        <li>
+          <a
+            class=""
+            data-discover="true"
+            href="/shop"
+          >
+            Shop
+          </a>
+        </li>
+      </ul>
+      <div
+        class="nav-cart"
+      >
+        <a
+          class="cart-link"
+          data-discover="true"
+          href="/cart"
+        >
+          Cart
+        </a>
+      </div>
+    </nav>
+    <main
+      class="content-container"
+    >
+      <div
+        class="home-hero"
+      >
+        <h1>
+          Welcome to ODIN Store
+        </h1>
+        <p>
+          Discover handpicked curated collections optimized for your development lifestylre
+        </p>
+        <a
+          data-discover="true"
+          href="/shop"
+        >
+          Shop Products Now
+        </a>
+      </div>
+    </main>
+  </div>
+</div>
+`;
