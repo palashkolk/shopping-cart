@@ -16,7 +16,7 @@ function Shop(){
                 const response=await fetch('https://fakestoreapi.com/products');
                 if(!response.ok) throw new Error("Failed to pull catalogue records");
                 const data =await response.json();
-                const parsedProduct=await Promise.all(data.slice(0,5));
+                const parsedProduct=await Promise.all(data.slice(0,15));
                 setProducts(parsedProduct);
             }catch(err){
                 setError(err.message)
